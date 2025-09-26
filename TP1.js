@@ -25,14 +25,22 @@ class CarritoDeCompras {
     }
     
     removerProducto(producto) {
-        ///TODO
+        this.items = this.items.filter(item => item.producto !== producto);
     }
 
     calcularTotal() {
-        ///TODO
+        return this.items.reduce(
+         (total, item) => total + (item.producto.precio * item.cantidad),
+        0
+        );
     }
 
     mostrarCarrito() {
+       if (this.items.length === 0) {
+            console.log("El carrito está vacío.");
+            return;
+        }
+        
         console.log('Contenido actual del carrito:');
         for (const item of this.items) {
             console.log(`${item.producto.mostrarInformacion()}, Cantidad: ${item.cantidad}`);
