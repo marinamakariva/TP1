@@ -41,7 +41,6 @@ class CarritoDeCompras {
             return;
         }
         
-        console.log('Contenido actual del carrito:');
         for (const item of this.items) {
             console.log(`${item.producto.mostrarInformacion()}, Cantidad: ${item.cantidad}`);
         }
@@ -57,6 +56,23 @@ class Cliente {
     }
     
     realizarCompra() {
-        ///TODO
+        console.log("Resumen de la compra:");
+        this.carrito.mostrarCarrito();
+        console.log(`¡Felicitaciones, ${this.nombre}! Tu compra está confirmada. El precio total es ${this.carrito.calcularTotal()}. El pedido será entregado en la dirección: ${this.direccionEnvio}. ¡Gracias por tu confianza!`);
+        this.carrito.items = [];
     }
 }
+
+// const producto1 = new Producto(1, "Collar Tiffany & Co.", 450000, 100);
+// const producto2 = new Producto(2, "Anillo Swarovski", 199000, 5);
+// const carrito = new CarritoDeCompras();
+// carrito.agregarProducto(producto1, 2);
+// carrito.agregarProducto(producto2, 1);
+// console.log("Contenido del carrito:");
+// carrito.mostrarCarrito();
+// console.log("Total de la compra: $" + carrito.calcularTotal());
+// const cliente1 = new Cliente("Mark Martínez", "870 Av. Callao", carrito);
+// console.log("Cliente: " + cliente1.nombre);
+// console.log("Dirección de envío: " + cliente1.direccionEnvio);
+// cliente1.realizarCompra();
+// carrito.mostrarCarrito();
